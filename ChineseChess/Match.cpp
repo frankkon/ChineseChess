@@ -44,6 +44,13 @@ CPiece* CMatch::getPieceByName(int iPieceName)
 
 bool CMatch::init()
 {
+    //œ»«Â¿Ì
+    memset(m_sMatchID, 0, sizeof(m_sMatchID));
+    while(!m_stackHistory.empty())
+    {
+        m_stackHistory.pop();
+    }
+    clean();
     
     createMatchID();
 
@@ -347,6 +354,7 @@ void CMatch::finish()
     if(NULL != this)
     {
         delete this;
+        //this = NULL;
     }
 }
 
